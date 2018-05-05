@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Concentration
 //
-//  Created by MacBook Air on 08.04.2018.
+//  Created by Ilya Semerukhin on 08.04.2018.
 //  Copyright © 2018 Ilya Semerukhin. All rights reserved.
 //
 

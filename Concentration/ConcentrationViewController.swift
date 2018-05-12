@@ -27,15 +27,17 @@ class ConcentrationViewController: UIViewController {
    }
    
    private func updateViewFromModel() {
-      for index in cardButtons.indices {
-         let button = cardButtons[index]
-         let card = game.cards[index]
-         if card.isFaceUp {
-            button.setTitle(emoji(for: card), for: UIControlState.normal)
-            button.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
-         } else {
-            button.setTitle("", for: UIControlState.normal)
-            button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
+      if cardButtons != nil {
+         for index in cardButtons.indices {
+            let button = cardButtons[index]
+            let card = game.cards[index]
+            if card.isFaceUp {
+               button.setTitle(emoji(for: card), for: UIControlState.normal)
+               button.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+            } else {
+               button.setTitle("", for: UIControlState.normal)
+               button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
+            }
          }
       }
    }

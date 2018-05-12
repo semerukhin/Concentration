@@ -32,10 +32,10 @@ class ConcentrationViewController: UIViewController {
          let card = game.cards[index]
          if card.isFaceUp {
             button.setTitle(emoji(for: card), for: UIControlState.normal)
-            button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+            button.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
          } else {
             button.setTitle("", for: UIControlState.normal)
-            button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+            button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.7540688515, green: 0.7540867925, blue: 0.7540771365, alpha: 1)
          }
       }
    }
@@ -59,13 +59,14 @@ class ConcentrationViewController: UIViewController {
    }
    
    private func updateFlipCountLabel() {
-      // flipCountLabel.text = "Flips: \(flipCount)"
-      let attributes: [NSAttributedStringKey: Any] = [
-         .strokeWidth: 5.0,
-         .strokeColor: #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-      ]
-      let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
-      flipCountLabel.attributedText = attributedString
+      flipCountLabel.text = "Flips: \(flipCount)"
+      
+//      let attributes: [NSAttributedStringKey: Any] = [
+//         .strokeWidth: 2.0,
+//         .strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//      ]
+//      let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
+//      flipCountLabel.attributedText = attributedString
    }
    
 }

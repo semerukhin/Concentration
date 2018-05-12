@@ -12,8 +12,6 @@ class ConcentrationViewController: UIViewController {
    
    private lazy var game = Concentration(numberOfPairOfCards: (cardButtons.count + 1) / 2)
    private(set) var flipCount = 0 { didSet { updateFlipCountLabel() } }
-   private var emojiChoices = "🎃👻🍭🦇🍎😈😱"
-   private var emoji = [Card: String]()
    
    @IBOutlet private weak var flipCountLabel: UILabel! { didSet { updateFlipCountLabel() } }
    @IBOutlet private var cardButtons: [UIButton]!
@@ -41,6 +39,16 @@ class ConcentrationViewController: UIViewController {
          }
       }
    }
+   
+   var theme: String? {
+      didSet {
+         emojiChoices = theme ?? ""
+         emoji = [:]
+         updateViewFromModel()
+      }
+   }
+   private var emojiChoices = "🎃👻🍭🦇🍎😈😱"
+   private var emoji = [Card: String]()
    
    private func emoji(for card: Card) -> String {
       if emoji[card] == nil {

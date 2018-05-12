@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConcentrationViewController.swift
 //  Concentration
 //
 //  Created by Ilya Semerukhin on 08.04.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
    
    private lazy var game = Concentration(numberOfPairOfCards: (cardButtons.count + 1) / 2)
    private(set) var flipCount = 0 { didSet { updateFlipCountLabel() } }

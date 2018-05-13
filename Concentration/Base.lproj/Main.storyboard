@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rfQ-4D-ZAo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dei-BV-NuV">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,14 +20,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3eJ-06-rl1">
-                                <rect key="frame" x="105" y="331.5" width="110" height="169"/>
+                                <rect key="frame" x="105" y="307" width="110" height="169"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riV-x1-soQ">
                                         <rect key="frame" x="9.5" y="0.0" width="91" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Sports"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="lX8-WM-LVb"/>
+                                            <action selector="changeTheme:" destination="blt-TE-DVd" eventType="touchUpInside" id="Wwd-1v-aHa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-RE-79Y">
@@ -35,7 +35,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Faces"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="txe-W2-Unm"/>
+                                            <action selector="changeTheme:" destination="blt-TE-DVd" eventType="touchUpInside" id="LXy-r7-elO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwn-Rr-LH3">
@@ -43,7 +43,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Animals"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="NXZ-Hi-4PM"/>
+                                            <action selector="changeTheme:" destination="blt-TE-DVd" eventType="touchUpInside" id="6Gg-0k-znx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -57,6 +57,9 @@
                         <viewLayoutGuide key="safeArea" id="NiX-NW-8C5"/>
                     </view>
                     <navigationItem key="navigationItem" id="kt9-sf-WpW"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="5ru-oL-D8b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqY-BF-dAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,6 +69,7 @@
         <scene sceneID="QGy-hW-8UL">
             <objects>
                 <splitViewController id="rfQ-4D-ZAo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="zCD-ex-n0l"/>
                     <connections>
                         <segue destination="bCK-ok-6jw" kind="relationship" relationship="masterViewController" id="BfV-Oe-Uil"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="4qL-Lu-POE"/>
@@ -74,6 +78,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajQ-oy-9cQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1120" y="841"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2gQ-Zs-OhZ">
+            <objects>
+                <viewController id="ri4-KE-2yQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xus-21-A75">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hzf-io-mGy"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="0rj-XF-VmF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25P-tE-EKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1120" y="2188"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ES9-yW-oeH">
+            <objects>
+                <viewController id="DgR-0g-cpc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LPw-ty-lug">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="73R-bT-U4o"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="1sB-iv-f3e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ntz-9P-IjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1120" y="1511"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="3ag-KD-Br1">
+            <objects>
+                <tabBarController id="Dei-BV-NuV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vWH-LX-Jm5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rfQ-4D-ZAo" kind="relationship" relationship="viewControllers" id="f5X-dR-Bjh"/>
+                        <segue destination="DgR-0g-cpc" kind="relationship" relationship="viewControllers" id="QLh-EC-I57"/>
+                        <segue destination="ri4-KE-2yQ" kind="relationship" relationship="viewControllers" id="KH6-D4-swJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngb-ES-LG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1892" y="1648"/>
         </scene>
         <!--Concentration View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -200,7 +255,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik3-cH-igb">
-                                <rect key="frame" x="314" y="719" width="75.5" height="29"/>
+                                <rect key="frame" x="314" y="670" width="75.5" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -257,6 +312,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4qL-Lu-POE"/>
+        <segue reference="5ru-oL-D8b"/>
     </inferredMetricsTieBreakers>
 </document>

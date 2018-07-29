@@ -7,7 +7,11 @@
 
 import UIKit
 
-class ConcentrationViewController: UIViewController {
+class ConcentrationViewController: VCLLoggingViewController {
+   
+   override var vclLoggingName: String {
+      return "Game"
+   }
    
    private lazy var game = Concentration(numberOfPairOfCards: (cardButtons.count + 1) / 2)
    private(set) var flipCount = 0 { didSet { updateFlipCountLabel() } }

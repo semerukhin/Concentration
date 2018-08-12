@@ -13,15 +13,25 @@ class ConcentrationViewController: UIViewController {
 //      return "Game"
 //   }
    
-   private lazy var game = Concentration(numberOfPairOfCards: (cardButtons.count + 1) / 2)
+   private lazy var game = Concentration(numberOfPairOfCards: (visibleCardButtons.count + 1) / 2)
    private(set) var flipCount = 0 { didSet { updateFlipCountLabel() } }
    
    @IBOutlet private weak var flipCountLabel: UILabel! { didSet { updateFlipCountLabel() } }
+   
    @IBOutlet private var cardButtons: [UIButton]!
+   
+   private var visibleCardButtons: [UIButton]! {
+      return cardButtons?.filter { !$0.superview!.isHidden }
+   }
+   
+   override func viewDidLayoutSubviews() {
+      super.viewDidLayoutSubviews()
+      updateViewFromModel()
+   }
    
    @IBAction private func touchCard(_ sender: UIButton) {
       flipCount += 1
-      if let cardNumber = cardButtons.index(of: sender) {
+      if let cardNumber = visibleCardButtons.index(of: sender) {
          game.chooseCard(at: cardNumber)
          updateViewFromModel()
       } else {
@@ -30,9 +40,9 @@ class ConcentrationViewController: UIViewController {
    }
    
    private func updateViewFromModel() {
-      if cardButtons != nil {
-         for index in cardButtons.indices {
-            let button = cardButtons[index]
+      if visibleCardButtons != nil {
+         for index in visibleCardButtons.indices {
+            let button = visibleCardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
                button.setTitle(emoji(for: card), for: UIControlState.normal)
@@ -64,7 +74,9 @@ class ConcentrationViewController: UIViewController {
    }
    
    private func updateFlipCountLabel() {
-      flipCountLabel.text = "Flips: \(flipCount)"
+      flipCountLabel.text = traitCollection.verticalSizeClass == .compact ? "Flips\n\(flipCount)" : "Flips: \(flipCount)"
+      
+//      flipCountLabel.text = "Flips: \(flipCount)"
       
 //      let attributes: [NSAttributedStringKey: Any] = [
 //         .strokeWidth: 2.0,
@@ -72,6 +84,11 @@ class ConcentrationViewController: UIViewController {
 //      ]
 //      let attributedString = NSAttributedString(string: "Flips: \(flipCount)", attributes: attributes)
 //      flipCountLabel.attributedText = attributedString
+   }
+   
+   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+      super.traitCollectionDidChange(previousTraitCollection)
+      updateFlipCountLabel()
    }
    
 }
